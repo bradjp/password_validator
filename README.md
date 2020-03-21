@@ -5,7 +5,7 @@ Minimum password length: 8 #
 
 Max password length: 18 #
 
-Minimum one lowercase
+Minimum one lowercase #
 
 Minimum one upper case 
 
