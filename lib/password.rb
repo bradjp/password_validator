@@ -13,6 +13,13 @@ class Password
   end
 
   def length_validator
-    raise 'Password must be between 8 and 18 characters' if @password.length <= 7 || @password.length >=19
+    raise 'Password must be between 8 and 18 characters' if length_invalid?
   end
+
+  private
+
+  def length_invalid?
+    @password.length <= 7 || @password.length >=19
+  end
+
 end
