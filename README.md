@@ -1,9 +1,9 @@
 Requirements
 ============
 
-Minimum password length: 8 
+Minimum password length: 8 #
 
-Max password length: 18 
+Max password length: 18 #
 
 Minimum one lowercase
 

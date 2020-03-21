@@ -16,6 +16,10 @@ class Password
     raise 'Password must be between 8 and 18 characters' if length_invalid?
   end
 
+  def character_validator
+    raise 'Password must contain a lowercase character' unless @password =~ /([a-z])/
+  end
+
   private
 
   def length_invalid?

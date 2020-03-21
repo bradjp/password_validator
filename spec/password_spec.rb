@@ -23,4 +23,10 @@ describe Password do
       expect { subject.length_validator }.to raise_error(RuntimeError, 'Password must be between 8 and 18 characters')
     end
   end
+  describe '#character_validator' do
+    it 'checks the password contains a lowercase character' do
+      subject.set_password('TESTING1.')
+      expect { subject.character_validator }.to raise_error(RuntimeError, 'Password must contain a lowercase character')
+    end
+  end
 end
