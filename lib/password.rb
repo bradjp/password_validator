@@ -16,12 +16,9 @@ class Password
   end
 
   def character_validator
-    unless @password =~ /([a-z])/ && @password =~ /([A-Z])/ && @password =~ /([0-9])/
+    unless @password =~ /([a-z])/ && @password =~ /([A-Z])/ && @password =~ /([0-9])/ && @password =~ /([^0-9a-zA-Z ])/
       raise 'Password must contain 1 of each: special, lower & upper case character, as well as a number'
     end
-    # unless @password =~ /([A-Z])/
-    #   raise 'Password must contain an uppercase character'
-    # end
   end
 
   private

@@ -37,5 +37,9 @@ describe Password do
       subject.set_password('Testingt.')
       expect { subject.character_validator }.to raise_error(RuntimeError, character_check)
     end
+    it 'checks the password contains a special character' do
+      subject.set_password('Testingt1')
+      expect { subject.character_validator }.to raise_error(RuntimeError, character_check)
+    end
   end
 end
