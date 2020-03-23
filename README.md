@@ -11,10 +11,10 @@ Minimum one upper case
 
 Minimum one number 
 
-Minimum one special character 
-
-Reject passwords with 3 consecutive identical characters 
+Minimum one special character
 
 Reject passwords containing username 
 
 Reject passwords with part of the user's name
+
+Reject passwords with 3 consecutive identical characters 

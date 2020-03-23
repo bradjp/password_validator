@@ -1,8 +1,9 @@
 require 'password'
 
 describe Password do
-
   subject(:double) { described_class.new }
+
+  character_check = 'Password must contain 1 of each: special, lower & upper case character, as well as a number'
 
   it 'initializes as an empty string' do
     expect(subject.access_password).to eq('')
@@ -26,7 +27,15 @@ describe Password do
   describe '#character_validator' do
     it 'checks the password contains a lowercase character' do
       subject.set_password('TESTING1.')
-      expect { subject.character_validator }.to raise_error(RuntimeError, 'Password must contain a lowercase character')
+      expect { subject.character_validator }.to raise_error(RuntimeError, character_check)
+    end
+    it 'checks the password contains an uppercase character' do
+      subject.set_password('testing1.')
+      expect { subject.character_validator }.to raise_error(RuntimeError, character_check)
+    end
+    it 'checks the password contains a number' do
+      subject.set_password('Testingt.')
+      expect { subject.character_validator }.to raise_error(RuntimeError, character_check)
     end
   end
 end

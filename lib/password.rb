@@ -1,5 +1,4 @@
 class Password
-
   def initialize
     @password = ''
   end
@@ -17,13 +16,17 @@ class Password
   end
 
   def character_validator
-    raise 'Password must contain a lowercase character' unless @password =~ /([a-z])/
+    unless @password =~ /([a-z])/ && @password =~ /([A-Z])/ && @password =~ /([0-9])/
+      raise 'Password must contain 1 of each: special, lower & upper case character, as well as a number'
+    end
+    # unless @password =~ /([A-Z])/
+    #   raise 'Password must contain an uppercase character'
+    # end
   end
 
   private
 
   def length_invalid?
-    @password.length <= 7 || @password.length >=19
+    @password.length <= 7 || @password.length >= 19
   end
-
 end
