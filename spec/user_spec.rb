@@ -17,10 +17,4 @@ describe User do
       expect(subject.view_password).to eq('')
     end
   end
-  describe '#choose_password' do
-    it 'allows a password to be set' do
-      subject.choose_password('Testing1.')
-      expect(subject.view_password).to eq('Testing1.')
-    end
-  end
 end

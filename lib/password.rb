@@ -6,20 +6,28 @@ class Password
   def access_password
     @password
   end
-
+  
   def create_password(password)
     @password = password
+    length_validator
+    character_validator
   end
+  
+  private
 
   def length_validator
-    raise 'Password must be between 8 and 18 characters' if length_invalid?
+    if length_invalid?
+      @password == ''
+      raise 'Password must be between 8 and 18 characters'
+    end  
   end
 
   def character_validator
-    raise characters_invalid_notification unless characters_valid?
+    unless characters_valid?
+      @password == ''
+      raise characters_invalid_notification
+    end
   end
-
-  private
 
   def characters_valid?
     @password =~ /([a-z])/ && @password =~ /([A-Z])/ && @password =~ /([0-9])/ && @password =~ /([^0-9a-zA-Z ])/
