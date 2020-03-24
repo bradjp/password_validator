@@ -7,11 +7,11 @@ Max password length: 18 #
 
 Minimum one lowercase #
 
-Minimum one upper case 
+Minimum one upper case #
 
-Minimum one number 
+Minimum one number #
 
-Minimum one special character
+Minimum one special character #
 
 Reject passwords containing username 
 

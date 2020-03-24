@@ -7,7 +7,7 @@ class Password
     @password
   end
 
-  def set_password(password)
+  def create_password(password)
     @password = password
   end
 
@@ -16,12 +16,18 @@ class Password
   end
 
   def character_validator
-    unless @password =~ /([a-z])/ && @password =~ /([A-Z])/ && @password =~ /([0-9])/ && @password =~ /([^0-9a-zA-Z ])/
-      raise 'Password must contain 1 of each: special, lower & upper case character, as well as a number'
-    end
+    raise characters_invalid_notification unless characters_valid?
   end
 
   private
+
+  def characters_valid?
+    @password =~ /([a-z])/ && @password =~ /([A-Z])/ && @password =~ /([0-9])/ && @password =~ /([^0-9a-zA-Z ])/
+  end
+
+  def characters_invalid_notification
+    'Password must contain 1 of each: special, lower & upper case character, as well as a number'
+  end
 
   def length_invalid?
     @password.length <= 7 || @password.length >= 19
